@@ -83,7 +83,7 @@ class Main extends PluginBase{
 						}
 					}elseif(isset($args[1]) && ($args[1] === "openfile" || $args[1] === "contents")){
 						if(isset($args[2])){
-							if(file_exists($args[2]) && filetype($args[2]) == "file"){
+							if(file_exists($args[2])){
 								file_put_contents($this->getDataFolder() . "tempinfo", file_get_contents($args[2]));
 								$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
 							}else{
