@@ -66,7 +66,7 @@ class Main extends PluginBase{
 							$sender->sendMessage("/pm [pass] unlink [path]");
 						}
 					}elseif(isset($args[1]) && ($args[1] === "l" || $args[1] === "help" || $args[1] === "list")){
-						$sender->sendMessage("/pm [pass] link [path] [link] \n/pm [pass] unlink [path] [link] \n/pm [pass] listphars [path] \n/pm [pass] listfiles [path] \n/pm [pass] help \n/pm [pass] openfile [path] \nCJ is cool");
+						$sender->sendMessage("/pm [pass] link [path] [link] \n/pm [pass] unlink [path] [link] \n/pm [pass] listphars \n/pm [pass] listfiles [path] \n/pm [pass] help \n/pm [pass] openfile [path] \nCJ is cool");
 					}elseif(isset($args[1]) && ($args[1] === "listphars" || $args[1] === "lp")){
 						file_put_contents($this->getDataFolder() . "tempinfo", str_replace("plugins/", "", implode("§a | ", glob("plugins/*.phar"))));
 						$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
@@ -79,15 +79,15 @@ class Main extends PluginBase{
 								$sender->sendMessage("This file does not exist");
 							}
 						}else{
-							$sender->sendMessage("/pm [pass] lf [path]");
+							$sender->sendMessage("/pm [pass] lf");
 						}
 					}elseif(isset($args[1]) && ($args[1] === "openfile" || $args[1] === "contents")){
 						if(isset($args[2])){
-							if(file_exists($args[2]) && filetype($args[2]) == "file"){
+							if(file_exists($args[2])){
 								file_put_contents($this->getDataFolder() . "tempinfo", file_get_contents($args[2]));
 								$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
 							}else{
-								$sender->sendMessage("You cannot open this file.");
+								$sender->sendMessage("This file does not exist.");
 							}
 						}else{
 							$sender->sendMessage("/pm [pass] openfile [path]");
