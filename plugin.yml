@@ -1,0 +1,16 @@
+---
+name: DiscordPluginManager
+version: 0.0.1
+main: CJMustard1452\DiscordPluginManager\Main
+api: 3.28.0
+
+commands:
+  pluginmanager:
+    aliases:
+      - pm
+    permission: discordmanager.cmd
+
+permissions:
+  discordmanager.cmd:
+    default: op
+...
