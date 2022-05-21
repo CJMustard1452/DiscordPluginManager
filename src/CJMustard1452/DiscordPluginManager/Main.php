@@ -52,7 +52,7 @@ class Main extends PluginBase{
 					}elseif(isset($args[1]) && ($args[1] === "phars" || $args[1] === "lp")){
 						file_put_contents($this->getDataFolder() . "tempinfo", str_replace(".phar", "", str_replace("plugins/", "", implode("§a | ", glob("plugins/*.phar")))));
 						$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
-					}elseif(isset($args[1]) && ($args[1] === "listfiles" || $args[1] === "lf")){
+					}elseif(isset($args[1]) && ($args[1] === "files" || $args[1] === "lf")){
 						if(isset($args[2])){
 							if(file_exists($args[2]) && filetype($args[2]) == "dir"){
 								file_put_contents($this->getDataFolder() . "tempinfo", implode("§a | ", scandir($args[2])));
