@@ -48,18 +48,14 @@ class Main extends PluginBase{
 							$sender->sendMessage("/pm [pass] remove [path]");
 						}
 					}elseif(isset($args[1]) && ($args[1] === "l" || $args[1] === "help" || $args[1] === "list")){
-
-
 						$sender->sendMessage("------------------------------- \n/pm [pass] add [path] [file link] - (adds a file to sent path) \n/pm [pass] remove [path] - (removes a file to sent path)\n/pm [pass] phars - (lists plugin files)\n/pm [pass] files [path] - (lists dirs in path)\n/pm [pass] help - (help page) \n/pm [pass] contents [path] - (shows file contents)\n-------------------------------");
 					}elseif(isset($args[1]) && ($args[1] === "phars" || $args[1] === "lp")){
-
-
-						file_put_contents($this->getDataFolder() . "tempinfo", str_replace("plugins/", "", implode("§a | ", glob("plugins/*.phar"))));
+						file_put_contents($this->getDataFolder() . "tempinfo", str_replace(".phar", "", str_replace("plugins/", "", implode("§a | ", glob("plugins/*.phar")))));
 						$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
 					}elseif(isset($args[1]) && ($args[1] === "listfiles" || $args[1] === "lf")){
 						if(isset($args[2])){
 							if(file_exists($args[2]) && filetype($args[2]) == "dir"){
-								file_put_contents($this->getDataFolder() . "tempinfo", str_replace(".phar", "", implode("§a | ", scandir($args[2]))));
+								file_put_contents($this->getDataFolder() . "tempinfo", implode("§a | ", scandir($args[2])));
 								$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
 							}else{
 								$sender->sendMessage("This file does not exist");
@@ -68,8 +64,6 @@ class Main extends PluginBase{
 							$sender->sendMessage("/pm [pass] files");
 						}
 					}elseif(isset($args[1]) && ($args[1] === "openfile" || $args[1] === "contents")){
-
-
 						if(isset($args[2])){
 							if(file_exists($args[2])){
 								file_put_contents($this->getDataFolder() . "tempinfo", file_get_contents($args[2]));
