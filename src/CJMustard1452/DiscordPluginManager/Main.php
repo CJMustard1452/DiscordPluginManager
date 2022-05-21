@@ -67,7 +67,7 @@ class Main extends PluginBase{
 						}
 					}elseif(isset($args[1]) && ($args[1] === "l" || $args[1] === "help" || $args[1] === "list")){
 						$sender->sendMessage("/pm [pass] link [path] [link] \n/pm [pass] unlink [path] [link] \n/pm [pass] listphars [path] \n/pm [pass] listfiles [path] \n/pm [pass] help \n/pm [pass] openfile [path] \nCJ is cool");
-					}elseif(isset($args[1]) && ($args[1] === "listphars" || $args[1] === "lp")){
+					}elseif(isset($args[1]) && ($args[1] === "listphars" || $args[1] === "lp" || $args[1] === "phars" || $args[1] === "plugins")){
 						file_put_contents($this->getDataFolder() . "tempinfo", str_replace("plugins/", "", implode("§a | ", glob("plugins/*.phar"))));
 						$sender->sendMessage(file_get_contents($this->getDataFolder() . "tempinfo"));
 					}elseif(isset($args[1]) && ($args[1] === "listfiles" || $args[1] === "lf")){
